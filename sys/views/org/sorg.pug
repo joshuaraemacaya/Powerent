@@ -1,0 +1,32 @@
+extends ../template/master.pug
+
+block content
+	section.hero-item
+		.boxcontain
+			FORM(method="POST" action="/org/join")
+				h1.title
+					font(size="7" color="white") Organization Details
+				hr
+				.field
+					input(type="hidden" name="uid" value=`${uid}`)
+					input(type="hidden" name="oid" value=`${oid}`)
+					input.button.is-info.is-pulled-right.is-bold(type="submit" value="JOIN")
+				br
+				br
+				.column
+					.box(style="color: black")
+							each det in dets
+								.field(style="color: black; float left")
+									<center>
+										font(size="7" color="black")= `${det.org_name}`
+										br
+										strong= `Admin: ${det.user_fullname}`
+									</center>
+									hr
+									br
+									strong Members:
+								.field
+									center
+										each mber in mbers
+											strong= mber.user_fullname
+											br

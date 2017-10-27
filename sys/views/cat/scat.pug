@@ -1,0 +1,27 @@
+extends ../template/master.pug
+
+block content
+    section.hero-item
+        .boxcontain
+            each cat in cats
+                h1.title
+                   font(size="7" color="white")= cat.cat_name
+            hr
+            br
+            .columns.is-multiline
+                each item in items
+                    .column.is-4
+                        a(href=`/item?id=${item.item_id}`)
+                                .box
+                                    .field(style="color: black")
+                                        center
+                                            strong= item.item_name
+                                        .field
+                                            hr
+                                            h1name= `Description: ${item.item_desc}`
+                        br    
+        //- 		section.hero-item
+        //- .boxcontain
+        //- 	h1.title
+        //- 		font(size="7" color="white") Edit Profile
+        //- 		hr

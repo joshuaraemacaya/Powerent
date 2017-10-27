@@ -1,0 +1,57 @@
+extends ../template/navbar1
+
+
+
+
+block content
+    - var is_notfound = typeof notfound !== "undefined"? "Username don\'t exists": ""
+    - var is_incorrect = typeof incorrect !== "undefined"? "Wrong password": ""
+    - var is_noninput = typeof noninput !== "undefined"? "All fields are required": ""
+
+    section.hero-image1
+            .boxcontain
+                h1.title <strong><font size='7' color="white"><center>PoweRent</strong></font>
+                h3.subtitle <center><font size = '5' color="white">Search Talk Rent!</font>
+                h3.title.is-1 <center><font size = '4'color="white">Powering up businesses on just letting your equipments rented.</font>
+            br
+            .columns
+                .column.is-3
+                .column.is-6
+                        .column.is-5
+                        .box
+                            form(method="POST" action="/login")
+                                div(style="float: left")
+                                    .field
+                                        .field
+                                            label.label Have an account?
+                                br
+                                div(style="float: right; color: red")
+                                    if is_notfound || is_incorrect || is_noninput
+                                        strong #{is_notfound || is_incorrect || is_noninput}
+                                br
+                                .field.is-horizontal
+                                    .field-label.is-normal
+                                        label.label E-mail
+                                    .field-body
+                                        .field
+                                            p.control.is-expanded
+                                                input.input.is-primary(type="text" name="uname" placeholder="Email")
+                                
+                                .field.is-horizontal
+                                    .field-label.is-normal
+                                        label.label Password
+                                    .field-body
+
+                                        .field
+                                            p.control.is-expanded
+                                                input.input.is-primary(type="password" name="password" placeholder="Password")
+                                .fields
+                                        input.button.is-primary.is-pulled-right.is-bold(type="submit" value="Log in")
+                                .field.is-horizontal
+                                        .field-label.is-normal
+                                                label.label
+                                        .field-body
+                                .field
+                                        a(href='/signup') <i><font size="2"><center>New to PoweRent?<strong> Sign up<strong></i></font></center>
+                    
+                                

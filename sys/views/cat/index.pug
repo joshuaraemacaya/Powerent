@@ -1,0 +1,18 @@
+extends ../template/master.pug
+
+block content
+    section.hero-image1
+        .boxcontain
+            h1.title
+                font(size="7")
+                    strong(style="color: white") Categories
+            br
+            each cat in cats
+                a(href=`/cat?id=${cat.cat_id}`)
+                    .container
+                        .box
+                            .field(style="color: blue")
+                                h1
+                                    font(size="5")
+                                        strong= cat.cat_name
+                    br

@@ -1,0 +1,21 @@
+extends ../template/master.pug
+
+block content
+    section.hero-item
+        .boxcontain
+            h1.title 
+                font(size="7" color="white") All Notification
+                hr
+                <div class="member_list">
+                    each notif in notifs
+                        a(href=`/pending`)
+                            font(size="6" color="black") 
+                                <ul class="list-unstyled" >
+                                    <li class="left clearfix">
+                                        <span class="chat-img pull-left">
+                                        </span>
+                                        <div class="chat-body clearfix">
+                                            h1=notif.notif_desc
+                                            label(style="font-size: 40" ) 
+                                        </div>
+                                    </li>

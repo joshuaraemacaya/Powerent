@@ -1,0 +1,25 @@
+{
+  "name": "rental_system",
+  "version": "1.0.0",
+  "description": "None",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.15.3",
+    "dotenv": "^4.0.0",
+    "mysql": "^2.13.0",
+    "express-session": "^1.15.5",
+    "morgan": "^1.8.2",
+    "pug": "^2.0.0-rc.2",
+    "serve-static": "^1.12.3",
+    "body-parser": "^1.17.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "nodemon index.js 80"
+  },
+  "keywords": [
+    "none"
+  ],
+  "author": "the_powerent_group",
+  "license": "ISC"
+}

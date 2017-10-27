@@ -1,0 +1,51 @@
+extends ../template/master.pug
+
+block content
+    section.hero-item
+            .boxcontain
+                h1.title 
+                        font(size="7" color="white") Add Item
+                        hr
+                form(method="POST" action="/item/add")
+                        .box
+                                .field.is-horizontal
+                                        .field-label.is-normal
+                                                label.label Item
+                                        .field-body
+                                                .field
+                                                        p.control.is-expanded 
+                                                                input.input.is-primary(type="text" placeholder="Item name" name="iname")
+                                .field.is-horizontal
+                                        .field-label.is-normal
+                                                label.label Description
+                                        .field-body
+                                                .field
+                                                        p.control.is-expanded 
+                                                                textarea.input.is-primary(type="text" placeholder="Description" name="idesc")
+                                .field.is-horizontal
+                                        .field-label.is-normal
+                                                label.label Category
+                                        .field-body
+                                                .field
+                                                        p.control.is-expanded
+                                                                select(type="select" name="cid")
+                                                                        each cat in cats
+                                                                                option(value=`${cat.cat_id}`)= cat.cat_name
+                                .field.is-horizontal
+                                        .field-label.is-normal
+                                                label.label Price(/hr)
+                                        .field-body
+                                                .field
+                                                        p.control.is-expanded 
+                                                                input.input.is-primary(type="number" placeholder="Price" name="price")
+                                .field.is-horizontal
+                                        .field-label.is-normal
+                                                label.label Quantity
+                                        .field-body
+                                                .field
+                                                        p.control.is-expanded 
+                                                                input.input.is-primary(type="number" placeholder="Quantity" name="qty")
+                                .field.is-horizontal
+                                        .field-body
+                                                .field                        
+                                                        input.button.is-primary.is-pulled-right.is-bold(type="submit" value="Add") 

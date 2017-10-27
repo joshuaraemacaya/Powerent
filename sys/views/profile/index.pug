@@ -1,0 +1,56 @@
+extends ../template/master.pug
+
+block content
+    section.hero-item
+        .boxcontain
+                h1.title
+                        font(size="7" color="white") Profile
+                        hr
+                .columns
+                        .column
+                .columns
+                        .column
+                                .box
+                                        .columns
+                                                .column
+                                                        .field
+                                                               font(size="2" color="black")
+                                                                each det in details
+                                                                        h1name Full Name:  
+                                                                        h1name(style= "color: black")= det.user_fullname
+                                                                        .field
+                                                                        h1name Username:  
+                                                                        h1name(style= "color: black")= det.user_name
+                                                                        .field
+                                                                        h1name Contact No:  
+                                                                        h1name(style= "color: black")= det.contact_no
+                                                                        .field
+                                                                        h1name Birthdate:  
+                                                                        h1name(style= "color: black")= det.user_bday
+                                                                        .field
+                                                                        .Label Organizations
+                                                                        if owns.length !== 0
+                                                                            strong Owner: 
+                                                                            each own in owns
+                                                                                center
+                                                                                    strong= own.org_name
+                                                                                    br
+                                                                        else
+                                                                            strong Owner:
+                                                                            br
+                                                                            center
+                                                                                strong None
+                                                                        strong Member: 
+                                                                        br
+                                                                        each org in orgs
+                                                                            if org.org_name != null
+                                                                                center
+                                                                                    strong= org.org_name
+                                                                                    br
+                                                                            else
+                                                                                center
+                                                                                    strong None  
+                                                                .field.is-horizontal
+                                                                .fields
+                                                                                a.button.is-primary.is-pulled-left(href="javascript:history.back()" style="background: red") Back
+                                                                                a.button.is-primary.is-pulled-right(href="/profile/edit") Edit

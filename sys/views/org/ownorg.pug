@@ -1,0 +1,20 @@
+extends ../template/master.pug
+
+block content
+    //- dito ung pwede magjoin 
+	section.hero-item
+		.boxcontain
+			h1.title
+				font(size="7" color="white") My Organization
+				//- lagyan mo din ng each dito erp para madisplay ko ung name ng organization nya at ung admin
+                hr
+				.column
+				.box(style="color: black")
+					form(method="" action="")
+						each detail in details
+							.field(style="color: black")
+								strong= `Organization Name: `
+								br
+								strong= `Description:`
+								br
+

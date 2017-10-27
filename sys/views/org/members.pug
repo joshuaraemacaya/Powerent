@@ -1,0 +1,15 @@
+extends ../template/master.pug
+
+block content
+    //- dito ung pwede magkick tapos view to ng mga members
+    section.hero-item
+            .boxcontain
+                h1.title 
+                    font(size="7" color="white") Members
+                    hr
+                    .column
+                    .columns.is-multiline
+                        each item in items
+                                .column.is-3
+                                //- Name and Contact lang ng Members 
+                                //- pwede na lagay dito ung button na "REMOVE"

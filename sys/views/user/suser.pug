@@ -1,0 +1,35 @@
+extends ../template/master.pug
+
+block content
+    each det in dets
+        section.hero-item
+            .boxcontain
+                h1.title
+                    font(size="7" color="white") User Details
+                    br
+                    a.button.is-info.is-pulled-right(href=`/chat?id=${det.user_id}`) Send Message 
+                    //- angelito ung href dito ^ 
+                    br
+                    hr
+                    br
+                    .container
+                        .box
+                            .field(style="color: black")
+                                font(size="5")
+                                    <center>
+                                        strong= `${det.user_name}`
+                                    </center>
+                                    hr
+                                    h1name= `Full Name: ${det.user_fullname}`
+                                    br
+                                    h1name= `Birthday: ${det.user_bday}`
+                                    br
+                                    h1name= `Contact Number: ${det.contact_no}`
+                                    br
+                                    h1name Organizations: 
+                                    each org in orgs
+                                            center
+                                                if org.org_name != null
+                                                    strong= org.org_name
+                                                else
+                                                    strong None

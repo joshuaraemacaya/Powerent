@@ -1,0 +1,43 @@
+extends ../template/master.pug
+
+block content
+    section.hero-item
+        .boxcontain
+            h1.title
+                font(size="7" color="white") Your Cart 
+                hr
+            .columns.is-multiline
+                each item in items
+                    .column.is-3
+                        .box
+                            form(method="POST" action="/cart")                   
+                                .field(style="color: black")
+                                    <center>
+                                    h1
+                                        font(size="6")
+                                            strong= item.item_name
+                                    hr
+                                    </center>
+                                    strong= `Description: ${item.item_desc}`
+                                    br
+                                    strong= `Category: ${item.cat_name}`
+                                    br
+                                    strong= `Owner: ${item.user_fullname}`
+                                    br
+                                    strong= `Price(/hr): P${item.price_per_hr}`
+                                    br
+                                    strong= `Available: ${item.cur_qty}`
+                                    br
+                                    br
+                                    .field.is-horizontal
+                                        .field-label.is-normal
+                                            label.label Quantity
+                                        .field-body
+                                            .field
+                                                p.control.is-expanded
+                                                    input.input.is-primary(type="number" name="qty" placeholder="Quantity")
+                                    input(type="hidden" name="id" value=`${item.tproc_id}`)   
+                                input.button.is-primary.is-bold(type="submit" value="Send request")
+                            form(method="POST" action="/cart/del")
+                                input(type="hidden" name="id" value=`${item.tproc_id}`)
+                                input.button.is-danger.is-bold(type="submit" value="Delete")

@@ -1,0 +1,31 @@
+extends ../template/master.pug
+
+block content
+    each det in dets
+        section.hero-item
+            .boxcontain
+                h1.title
+                    font(size="7" color="white") Renting Items
+                    hr
+                    form(method="POST" action="/item/returned")   
+                        .column
+                        .box
+                            .field(style="color: black")                        
+                                <center>
+                                strong
+                                    font(size="7" color="black")= `${det.item_name}` 
+                                hr
+                                </center>
+                                h1= `Category: ${det.cat_name}`
+                                h1= `Borrower: ${det.user_fullname}`
+                                h1= `Price(/hr): P${det.price_per_hr}`
+                                h1= `Quantity: ${det.qty_rented}`
+                                h1= `Start: ${det.start}`
+                                h1= `Time Used: ${use}`
+                                h1= `Price: P${price}`
+                                br
+                                a.button.is-danger.is-pulled-left(href="javascript:history.back()") Back
+                                input(type="hidden" name="id" value=`${pid}`)
+                                input(type="hidden" name="iid" value=`${det.item_id}`)
+                                input(type="hidden" name="qty" value=`${det.qty_rented}`)
+                                input.button.is-danger.is-pulled-right(type="submit" value="return") 

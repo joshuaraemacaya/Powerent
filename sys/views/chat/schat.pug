@@ -1,0 +1,52 @@
+extends ../template/master.pug
+
+block content
+    - console.log(chatmate)
+    - console.log(user)
+    //- SO BALI GANTO YAN ETO UNG SAMPLE NG MESSAGE NATIN GANYAN DAPAT ITSURA SO KAYA NYO NA YAN :D HAHAHHAHA LOL MATATAPOS NA NATIN TO BUKAS/MAMAYA
+    section.hero-item
+        .boxcontain
+            h1.title 
+                font(size="7" color="white") MESSAGES
+            hr
+            .box
+                    <div class="container"> 
+                        </span>
+                        <div class="panel-body">
+                            each msg in msgs
+                                <ul class="chat">
+                                    if msg.sender == user
+                                        <li class="left clearfix">
+                                            <div class="chat-body clearfix">
+                                                <div class="header">
+                                                    <strong class="primary-font"> You
+                                                    </strong> <small class="pull-right text-muted">
+                                                        <span class="glyphicon glyphicon-time"></span></small>
+                                                </div>
+                                                p= msg.msg
+                                            </div>
+                                        </li>
+                                    else if msg.sender == chatmate
+                                        <li class="right clearfix">
+                                            <div class="chat-body clearfix">
+                                                <div class="header">
+                                                    strong(class="primary-font")= chatname
+                                                        small(class="pull-right text-muted")
+                                                            span(class="glyphicon glyphicon-time")
+                                                </div>
+                                                p= msg.msg 
+                                            </div>
+                                        </li>
+                                </ul>
+                            </span>
+                            </div>
+                    <div class="panel-footer">
+                        <div class="input-group">
+                                form(method="POST" action="/chat")
+                                    .field.is-horizontal
+                                        textarea.input.is-primary(type="text" placeholder="Type your message" name="msg")
+                                        input(type="hidden" name="id" value=`${chatmate}`)
+                                        input.button.is-primary.is-bold(type="submit" value="SEND")
+                        </div>
+                    </div>
+                    </div>

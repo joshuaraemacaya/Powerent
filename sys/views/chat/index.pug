@@ -1,0 +1,21 @@
+extends ../template/master.pug
+
+block content
+    section.hero-item
+        .boxcontain
+            h1.title 
+                font(size="7" color="white") All Contacts
+                hr
+                <div class="member_list">
+                <ul class="list-unstyled">
+                    each cont in conts
+                        <li class="left clearfix">
+                            <span class="chat-img pull-left">
+                            </span>
+                            <div class="chat-body clearfix">
+                            a(href=`/chat?id=${cont.cont_id}` style="color: black")
+                                div.header_sec
+                                    strong.primary-font= cont.user_fullname
+                            </div>
+                        </li>
+                </div>

@@ -1,0 +1,18 @@
+extends ../template/master.pug
+
+block content
+    section.hero.is-primary.is-bold.is-fullheight
+        .main
+            h1.title
+                font(size="7")
+                    strong Users
+            br
+            each user in users
+                a(href=`/user?id=${user.user_id}`)
+                    .container
+                        .box
+                            .field(style="color: blue")
+                                h1
+                                    font(size="5")
+                                        strong= user.user_fullname
+                    br

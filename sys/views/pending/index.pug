@@ -1,0 +1,53 @@
+extends ../template/master.pug
+
+block content
+    section.hero-item
+            .boxcontain
+                h1.title
+                    font(size="7" color="white") Pending
+                    hr
+                br
+                .columns.is-multiline
+                    each item in items
+                        .column.is-3
+                            .box
+                                form(method="POST" action="/pending")
+                                    <Center>               
+                                    .field(style="color: black")
+                                        h1
+                                            font(size="5")
+                                                strong= item.item_name
+                                        hr
+                                        strong= `Renter: ${item.user_fullname}`
+                                        br
+                                        strong= `Quantity: ${item.qty}`
+                                        br
+                                        input(type="hidden" name="id" value=`${item.tproc_id}`)
+                                    input.button.is-primary.is-bold(type="submit" value="Confirm")
+                                form(method="POST" action="/pending/decline")
+                                        .field
+                                        input(type="hidden" name="id" value=`${item.tproc_id}`)
+                                        input(type="hidden" name="qty" value=`${item.qty}`)
+                                        input(type="hidden" name="iid" value=`${item.item_id}`)
+                                        input.button.is-danger.is-bold(type="submit" value="Decline")
+                    each req in reqs
+                        .column.is-3
+                            .box
+                                form(method="POST" action="/org")
+                                    <Center>               
+                                    .field(style="color: black")
+                                        h1
+                                            font(size="5")
+                                                strong= req.org_name
+                                        hr
+                                        strong= `Request from: ${req.user_fullname}`
+                                        br
+                                        input(type="hidden" name="id" value=`${req.jreq_id}`)
+                                        input(type="hidden" name="oid" value=`${req.org_id}`)
+                                        input(type="hidden" name="uid" value=`${req.user_id}`)
+                                    input.button.is-primary.is-bold(type="submit" value="Confirm")
+                                form(method="POST" action="/org/decline")
+                                        .field
+                                        input(type="hidden" name="id" value=`${req.jreq_id}`)
+                                        input.button.is-danger.is-bold(type="submit" value="Decline")
+

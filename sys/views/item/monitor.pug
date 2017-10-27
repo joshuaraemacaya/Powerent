@@ -1,0 +1,23 @@
+extends ../template/master.pug
+
+block content
+    section.hero-item
+            .boxcontain
+                h1.title 
+                    font(size="7" color="white") Monitor
+                    br
+                    <centeR> 
+                    hr
+                    .column
+                    .columns.is-multiline
+                        each item in items
+                                .column.is-3
+                                    a(href=`/item/monitor?id=${item.items_rented_id}`)
+                                        .box
+                                            .field(style="color: black") 
+                                                <center>
+                                                    strong= item.item_name   
+                                                .field
+                                                    hr
+                                                    h1name= item.user_fullname
+                                                    

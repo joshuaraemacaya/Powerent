@@ -1,0 +1,50 @@
+extends ../template/master.pug
+
+block content
+    section.hero-item
+        .boxcontain
+                h1.title
+                        font(size="7" color="white") Edit Profile
+                        hr
+                .columns
+                        .column
+                .columns
+                        .column
+                                .box
+                                        .columns
+                                                .column
+                                                        form(method="POST" action="/profile/edit")
+                                                                .field
+                                                                        each det in dets
+                                                                                .field.is-horizontal
+                                                                                        .field-label.is-normal
+                                                                                                .label Full Name :
+                                                                                        .field-body
+                                                                                                .field
+                                                                                                        p.control.is-expanded
+                                                                                                                input.input.is-primary(type="text" name="fname" value=`${det.user_fullname}`)
+                                                                                .field.is-horizontal
+                                                                                        .field-label.is-normal        
+                                                                                                .label Username :
+                                                                                        .field-body
+                                                                                                .field
+                                                                                                        p.control.is-expanded
+                                                                                                                input.input.is-primary(type="text" name="uname" value=`${det.user_name}` placeholder=`${det.user_name}`)
+                                                                                .field.is-horizontal
+                                                                                        .field-label.is-normal
+                                                                                                .label Birthdate :
+                                                                                        .field-body
+                                                                                                .field
+                                                                                                        p.control.is-expanded
+                                                                                                                input.input.is-primary(type="date" name="bday" value=`${det.user_bday}`)
+                                                                                .field.is-horizontal
+                                                                                        .field-label.is-normal
+                                                                                                .label Contact No :
+                                                                                        .field-body
+                                                                                                .field
+                                                                                                        p.control.is-expanded
+                                                                                                                input.input.is-primary(type="text" name="contactno" value=``)
+                                                                .field.is-horizontal
+                                                                .fields
+                                                                                a.button.is-danger.is-pulled-left(href="/profile") Back
+                                                                                input.button.is-info.is-pulled-right.is-bold(type="submit" value="Save")

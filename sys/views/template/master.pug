@@ -1,0 +1,49 @@
+extends ./base
+
+block body
+    .navbar
+        div.navbar-brand
+            a.navbar-item(href="/item")
+                <font color="white">        
+                    powerent PoweRent
+                     </font>
+
+        
+        .navbar-menu
+            .navbar-start
+                form(method="GET" action="/search")
+                    a.nav-level.nav-item
+                        input.input.is-primary(type="text" placeholder="Search" name="keyword")
+
+            .navbar-end
+                a.navbar-item(href="/notifs")
+                    span.icon-cog.icon.is-medium
+                        i.fa.fa-globe
+                a.navbar-item(href="/chat")
+                     span.icon-cog.icon.is-medium
+                        i.fa.fa-envelope
+                .navbar-item.has-dropdown.is-hoverable
+                    .navbar-link
+                        .label
+                        <font color="white"> 
+                            h1name Menu
+                                </font>
+                            .navbar-dropdown.is-boxed
+                                h1name
+                                    a.navbar-item(href="/profile") Profile
+                                hr
+                                a.navbar-item(href="/myitems")
+                                    .span My Items
+                                a.navbar-item(href="/renting")
+                                    .span Rented Items
+                                a.navbar-item(href="/cart")
+                                    .span Cart
+                                a.navbar-item(href="/pending")
+                                    .span Pending                                  
+                a.navbar-item(href="/logout")
+                         <font color="white"> Log Out </font>
+                         span.icon-cog.icon.is-medium
+                            i.fa.fa-sign-out
+                    
+        
+    block content

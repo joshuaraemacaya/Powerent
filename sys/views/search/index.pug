@@ -1,0 +1,66 @@
+extends ../template/master.pug
+
+block content
+    section.hero-item
+        .boxcontain
+                                .columns
+                                        .container 
+                                            .column 
+                                                h1.title
+                                                    font(size="7" color="white") People
+                                                    hr
+                                                <center>
+                                                .box
+                                                    if users.length > 0
+                                                        each user in users
+                                                            a(href=`/user?id=${user.user_id}`)
+                                                                strong(style="color: black")= user.user_fullname
+                                                                br
+                                                            hr
+                                                    else
+                                                        strong(style="color: black") No users found
+                                        .container
+                                            .column
+                                                h1.title
+                                                    font(size="7" color="white") Category
+                                                    hr
+                                                <center>
+                                                .box
+                                                    if cats.length > 0
+                                                        each cat in cats
+                                                            a(href=`/cat?id=${cat.cat_id}`)
+                                                                strong(style="color: black")= cat.cat_name
+                                                                br
+                                                            hr
+                                                    else
+                                                        strong(style="color: black") No categories found
+                                        .container
+                                            .column
+                                                h1.title
+                                                    font(size="7" color="white") Item
+                                                    hr
+                                                <center>
+                                                .box
+                                                    if items.length > 0
+                                                        each item in items
+                                                            a(href=`/item?id=${item.item_id}`)
+                                                                strong(style="color: black")= item.item_name
+                                                                br
+                                                            hr
+                                                    else
+                                                        strong(style="color: black") No items found    
+                                        .container
+                                            .column
+                                                h1.title
+                                                    font(size="7" color="white") Organization
+                                                    hr
+                                                <center>
+                                                .box
+                                                    if orgs.length > 0
+                                                        each org in orgs
+                                                            a(href=`/org?id=${org.org_id}`)
+                                                                strong(style="color: black")= org.org_name
+                                                                br
+                                                            hr
+                                                    else
+                                                        strong(style="color: black") No organization found      

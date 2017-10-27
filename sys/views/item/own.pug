@@ -1,0 +1,26 @@
+extends ../template/master.pug
+
+block content
+    section.hero-item
+        .boxcontain 
+            h1.title
+                font(size="7" color="white") My Items
+                hr
+            .fields
+                a.button.is-info(href="/item/add") Add Item
+                a.button.is-primary.is-bold.is-pulled-right(href="/item/monitor") Monitor
+            br
+            .columns.is-multiline
+                each item in items
+                    .column.is-3
+                            .box
+                                <center>
+                                strong
+                                     font(size="6" color="black" )= ` ${item.item_name}`
+                                hr
+                                </center>
+                                h1= `Description: ${item.item_desc}`
+                                h1= `Category: ${item.cat_name}`
+                                h1= `Price(/hr): ${item.price_per_hr}`
+                                h1= `Original Quantity: ${item.orig_qty}`
+                                h1= `Available: ${item.cur_qty}`

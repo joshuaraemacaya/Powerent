@@ -1,0 +1,26 @@
+extends ../template/master.pug
+
+block content
+    section.hero-item
+            .boxcontain
+                h1.title 
+                    font(size="7" color="white") Organizations
+                    a.button.is-info.is-pulled-right(href="/org/create") Create Organization
+                    hr
+                    .column
+                    .columns.is-multiline
+                        each org in orgs
+                                .column.is-3
+                                    a(href=`/org?id=${org.org_id}`)
+                                        .box
+                                            .field(style="color: black")
+                                                .field.is-horizontal  
+                                                    h1name= org.user_fullname    
+                                                .field    
+                                                    .boxitem
+                                                        h1= org.org_name
+                                    //- NOTE** bali eto ung Pug ng All Items ginamit ko sya sa Pag list ng Organization 
+                                    //- dun sa all items maglalagay ako ng button na "Organization" at pagka-click nun
+                                    //- dito mapupunta 
+
+                                    //- NOTE *** wala pa syang mga Route bali "PUG" palang talaga

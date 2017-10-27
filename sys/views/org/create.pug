@@ -1,0 +1,32 @@
+extends ../template/master.pug
+
+block content
+
+    //- bali di ko pa natetest tong mga to kung nagana ha , palagyan ng route tapos send ka agad sakin 
+    section.hero-item
+            .boxcontain
+                h1.title 
+                        font(size="7" color="white") Create Organization
+                        hr
+                        .columns
+                            .column.is-3
+                            .column.is-6
+                                    .column.is-5
+                                    .box
+                                        form(method="POST" action="/org/create")
+                                            //-^ yung form po :D 
+                                            .field
+                                                .field-label
+                                                    center
+                                                        label.label Organization Name
+                                                        p.control.is-expanded
+                                                            input.input.is-primary(type="text" name="name" placeholder="Name")
+                                            .fields
+                                                    a.button.is-danger.is-pulled-left(href="javascript:history.back()") Back
+                                                    input.button.is-primary.is-pulled-right.is-bold(type="submit" value="Create")
+
+
+
+                                                    //- dapat pagka-create mapunta dun sa organization na ginawa nya 
+                                            
+                                        
